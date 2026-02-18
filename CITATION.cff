@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+title: "rigetti-fake-backends: FakeNovera and FakeCepheus"
+message: >-
+  If you use this software, please cite both the paper
+  and the software using the metadata from this file.
+type: software
+authors:
+  - given-names: Daniel Mo
+    family-names: Houshmand
+    email: mo@qdaria.com
+    affiliation: QDaria AS
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/MoHoushmand/rigetti-fake-backends"
+url: "https://github.com/MoHoushmand/rigetti-fake-backends"
+license: MIT
+version: 0.1.0
+date-released: "2026-02-18"
+keywords:
+  - quantum computing
+  - noise model
+  - fake backend
+  - Rigetti
+  - Novera
+  - Cepheus
+  - quantum reservoir computing
+  - NISQ
+  - Qiskit
+  - PyQuil
+abstract: >-
+  Open-source noise simulators for Rigetti's Novera 9-qubit and
+  Cepheus-1 36-qubit quantum processors. Dual PyQuil/Qiskit
+  implementations with calibrated noise parameters. FakeCepheus
+  features a heterogeneous noise model for multi-chip architectures.
+preferred-citation:
+  type: article
+  authors:
+    - given-names: Daniel Mo
+      family-names: Houshmand
+      email: mo@qdaria.com
+      affiliation: QDaria AS
+  title: >-
+    FakeNovera and FakeCepheus: Open-Source Noise Models for Rigetti
+    Quantum Processors with Application to Depth-Optimized Reservoir
+    Computing
+  journal: IEEE Transactions on Quantum Engineering
+  year: 2026

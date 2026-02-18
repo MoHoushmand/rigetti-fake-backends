@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "Optimal Circuit Depth for Quantum Reservoir Computing",
+    "author": "Daniel Mo Houshmand",
+    "affiliation": "QDaria AS, Oslo, Norway",
+    "date": "2025",
+    "version": "1.0"
+  },
+  "hardware": {
+    "name": "FakeNovera 9Q (Rigetti Novera Simulator)",
+    "qubits": 9,
+    "topology": "square_lattice",
+    "edges": [[0,1],[1,2],[3,4],[4,5],[6,7],[7,8],[0,3],[1,4],[2,5],[3,6],[4,7],[5,8]],
+    "n_edges": 12,
+    "connectivity": 0.333,
+    "T1_us": 27,
+    "T2_us": 27,
+    "gate_time_1q_ns": 40,
+    "fidelity_1q": 0.999,
+    "fidelity_2q": 0.994,
+    "shots": 2000,
+    "features": 45
+  },
+  "layer_sweep": {
+    "1": {"cz_gates": 12, "fidelity": 0.930, "r2_mean": -0.0562, "r2_std": 0.0761, "time_s": 521.5, "regime": "underfit"},
+    "2": {"cz_gates": 24, "fidelity": 0.866, "r2_mean": 0.2121, "r2_std": 0.1400, "time_s": 882.7, "regime": "improving"},
+    "3": {"cz_gates": 36, "fidelity": 0.805, "r2_mean": 0.4907, "r2_std": 0.0655, "time_s": 1292.9, "regime": "good"},
+    "4": {"cz_gates": 48, "fidelity": 0.749, "r2_mean": 0.4607, "r2_std": 0.0330, "time_s": 1612.8, "regime": "plateau"},
+    "5": {"cz_gates": 60, "fidelity": 0.697, "r2_mean": 0.5376, "r2_std": 0.0571, "time_s": 2012.8, "regime": "optimal"},
+    "6": {"cz_gates": 72, "fidelity": 0.648, "r2_mean": -0.0546, "r2_std": 0.6899, "time_s": 2165.0, "regime": "collapsed"},
+    "7": {"cz_gates": 84, "fidelity": 0.603, "r2_mean": -0.2509, "r2_std": 0.7960, "time_s": 2615.0, "regime": "unstable"}
+  },
+  "walk_forward_cv": {
+    "windows": [
+      {"range": "0-1000", "train_r2": 0.6139, "test_r2": 0.5719, "alpha": 1.0},
+      {"range": "1000-2000", "train_r2": 0.6330, "test_r2": 0.7064, "alpha": 0.1},
+      {"range": "2000-3000", "train_r2": 0.7613, "test_r2": 0.6544, "alpha": 0.1},
+      {"range": "3000-4000", "train_r2": 0.6914, "test_r2": 0.5105, "alpha": 0.001},
+      {"range": "4000-5000", "train_r2": 0.6331, "test_r2": 0.6409, "alpha": 0.1},
+      {"range": "5000-6000", "train_r2": 0.6702, "test_r2": 0.3809, "alpha": 1.0},
+      {"range": "6000-7000", "train_r2": 0.7027, "test_r2": 0.2256, "alpha": 1.0},
+      {"range": "7000-8000", "train_r2": 0.6401, "test_r2": 0.5317, "alpha": 0.1}
+    ],
+    "mean_r2": 0.5278,
+    "std_r2": 0.1483,
+    "n_windows": 8,
+    "window_size": 1000
+  },
+  "prediction_horizon": {
+    "1": {"r2": 0.6380, "rmse": 0.6024, "lyapunov_tau": 0.01},
+    "2": {"r2": 0.6336, "rmse": 0.6061, "lyapunov_tau": 0.02},
+    "5": {"r2": 0.6128, "rmse": 0.6230, "lyapunov_tau": 0.05},
+    "10": {"r2": 0.5662, "rmse": 0.6596, "lyapunov_tau": 0.09},
+    "20": {"r2": 0.4303, "rmse": 0.7565, "lyapunov_tau": 0.18},
+    "50": {"r2": -0.0362, "rmse": 1.0212, "lyapunov_tau": 0.45},
+    "100": {"r2": -0.3023, "rmse": 1.1463, "lyapunov_tau": 0.91}
+  },
+  "seed_robustness": {
+    "42": 0.6633,
+    "123": 0.6335,
+    "456": 0.6616,
+    "789": 0.6230,
+    "1000": 0.6606,
+    "mean": 0.6484,
+    "std": 0.0168
+  },
+  "optimal_depth_formula": {
+    "formula": "d_opt = -ln(F_threshold) / (n_edges * ln(F_2Q))",
+    "F_threshold": 0.70,
+    "n_edges": 12,
+    "F_2Q": 0.994,
+    "calculated_d_opt": 4.94,
+    "rounded_d_opt": 5
+  },
+  "lorenz_system": {
+    "sigma": 10,
+    "rho": 28,
+    "beta": 2.6667,
+    "dt": 0.01,
+    "lyapunov_exponent": 0.906,
+    "lyapunov_time_steps": 110
+  }
+}
